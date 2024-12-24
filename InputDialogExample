@@ -1,0 +1,41 @@
+import javax.swing.*;
+import java.awt.event.*;
+
+public class InputDialogExample {
+    public static void main(String[] args) {
+        // สร้างเฟรมหลัก
+        JFrame frame = new JFrame("Input Dialog");
+        frame.setSize(400, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+
+        // เพิ่มข้อความ Label
+        JLabel label = new JLabel("Enter your name:");
+        label.setBounds(20, 30, 150, 25);
+        frame.add(label);
+
+        // เพิ่มกล่องข้อความ (TextField)
+        JTextField textField = new JTextField();
+        textField.setBounds(150, 30, 200, 25);
+        frame.add(textField);
+
+        // เพิ่มปุ่ม Show Name
+        JButton button = new JButton("Show Name");
+        button.setBounds(150, 70, 120, 30);
+        frame.add(button);
+
+        // เพิ่ม ActionListener ให้ปุ่ม
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // ดึงข้อมูลจากกล่องข้อความ
+                String name = textField.getText();
+
+                // แสดง JDialog พร้อมข้อมูลที่ป้อนเข้ามา
+                JOptionPane.showMessageDialog(frame, "Hello, " + name + "!", "Greeting", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+
+        // แสดงเฟรม
+        frame.setVisible(true);
+    }
+}
